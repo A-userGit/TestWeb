@@ -28,7 +28,7 @@ public class Dealer implements Serializable {
 
     @Column(name = "phone")
     private String phone;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true,fetch = FetchType.EAGER)
     @JoinColumn(name = "dealer_id")
     private List<Product> products;
 
