@@ -3,11 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
   <artifactId>TestWeb</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>TestWeb Maven Webapp</name>
   <url>http://maven.apache.org</url>
-
+  <properties>
+    <start-class>com.testtask.ApplicationStarter</start-class>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -54,11 +56,6 @@
           <source>20</source>
           <target>20</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.2</version>
       </plugin>
     </plugins>
   </build>
