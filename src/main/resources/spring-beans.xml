@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+
+        <bean id="dealerService" class="com.testtask.services.DealerService">
+            <constructor-arg name="dealerRepository" ref="dealerRepository"/>
+        </bean>
+        <bean id="dealerRepository" class="com.testtask.dao.repositories.DealerRepository">
+
+        </bean>
+        <bean id="productService" class="com.testtask.services.ProductsService">
+            <constructor-arg name="dealerRepository" ref="dealerRepository"/>
+            <constructor-arg name="productsRepository" ref="productsRepository"/>
+        </bean>
+        <bean id="productsRepository" class="com.testtask.dao.repositories.ProductsRepository">
+
+        </bean>
+        <bean id="taskDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+            <property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+            <property name="username" value="root" />
+            <property name="password" value="root" />
+            <property name="connectionProperties">
+                <props>
+                    <prop key="connection.pool_size">10</prop>
+                </props>
+            </property>
+        </bean>
+</beans>

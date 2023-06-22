@@ -1,0 +1,50 @@
+POST http://localhost:8080/dealer/post/
+Content-Type: application/json
+{:
+    "id": 0,
+    "name": "one",
+    "surname": "ones",
+    "address": "baeldung",
+    "phone": "+37529-345-55-77",
+    "email": "dert@mail.com",
+    "products": []
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-21T213443.400.html
+
+###
+
+POST http://localhost:8080/dealer/post/
+Content-Type: application/json
+{:
+    "id": 0,
+    "name": "one",
+    "surname": "ones",
+    "address": "baeldung",
+    "phone": "+37529-345-55-77",
+    "email": "dert@mail.com",
+    "products": []
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-21T201555.400.html
+
+###
+
+POST http://localhost:8080/dealer/post/
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-21T201353.415.json
+
+###
+
