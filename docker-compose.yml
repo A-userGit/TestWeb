@@ -6,12 +6,16 @@ services:
       - SYS_NICE
     restart: always
     environment:
-      - MYSQL_DATABASE=mydb
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - '5432:3306'
     volumes:
-      - ./sql/TestTaskDBScript.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./storage/db:/var/lib/mysql:rw
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
   api:
     container_name: sales-api
     build:
@@ -19,7 +23,8 @@ services:
     image: sales-api
     restart: always
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
       - 8080:8080
     links:

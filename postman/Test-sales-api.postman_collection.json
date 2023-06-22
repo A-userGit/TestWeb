@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "43a47637-18b4-4c69-a92d-2d7c8c078d9e",
+		"name": "Test sales-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post dealer data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Post test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"one\",\r\n    \"surname\": \"ones\",\r\n    \"address\": \"baeldung\",\r\n    \"phone\": \"+375293455577\",\r\n    \"email\": \"bnrt@mail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dealer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get dealer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealer/{{dealer_idv}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealer",
+						"{{dealer_idv}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change dealer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{dealer_idv}},\r\n    \"name\": \"three\",\r\n    \"surname\": \"ones\",\r\n    \"address\": \"baeldung\",\r\n    \"phone\": \"+375293455577\",\r\n    \"email\": \"zxct@mail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/dealer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete dealer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/dealer/{{dealer_idv}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dealer",
+						"{{dealer_idv}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"one\",\r\n    \"brand\": \"dscr\",\r\n    \"description\": \"baeldung\",\r\n    \"price\": 10,\r\n    \"amount\": 5,\r\n    \"dealerId\": {{dealer_idv}}\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/{{product_idv}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"{{product_idv}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/{{product_idv}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"{{product_idv}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change product",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{product_idv}},\r\n    \"name\": \"one\",\r\n    \"brand\": \"dscr\",\r\n    \"description\": \"baeldung\",\r\n    \"price\": 10,\r\n    \"amount\": 5,\r\n    \"dealerId\": {{dealer_idv}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dealer_idv",
+			"value": "0",
+			"type": "default"
+		},
+		{
+			"key": "product_idv",
+			"value": "0",
+			"type": "default"
+		}
+	]
+}
